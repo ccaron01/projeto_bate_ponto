@@ -1,17 +1,18 @@
 <template> 
     <div class="d-flex justify-content-center">
-        <formCadastro/>
+        <loginUsuario/>
     </div>
 </template>
 
 <script>
-import formCadastro from '@/components/form_cadastro.vue'
+import loginUsuario from "@/components/formLogin.vue"
 
 export default {
   name: 'HomeView',
   components: {
-    formCadastro
-  },
+    loginUsuario,
+    }
+
 }
 </script>
 

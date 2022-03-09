@@ -1,15 +1,15 @@
 <template>
     <div class="d-flex justify-content-center">
-        <loginUsuario/>
+        <formCadastro/>
     </div>
 </template>
 
 <script>
-import loginUsuario from "@/components/formLogin.vue"
+import formCadastro from '@/components/form_cadastro.vue'
 export default {
-    name: "LoginView",
+    name: "CadastroView",
     components:{
-    loginUsuario,
+    formCadastro  
     }
 
 }
