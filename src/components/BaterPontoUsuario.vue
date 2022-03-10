@@ -1,15 +1,21 @@
 <template>
 <div class="d-flex justify-content-center mt-5">
-    <b-card class="w-25 d-flex">
-        <b-button size="lg" @click="setHorario()">Bater Ponto</b-button>
-        <router-link :to="{name:'registros'}" class="d-flex justify-content-end">Registros</router-link>
+    <b-card class="d-flex">
+        <b-button size="lg" class="d-flex" @click="setHorario()">Bater Ponto</b-button>
+        <b-button size="md" class="d-flex flex-row-reverse mt-3" v-b-modal.registros>Abrir Registros</b-button>
     </b-card>
+    
+    <b-modal title="Registros" id="registros" size="lg"><RegistrosUsuario/></b-modal>
 </div>
 </template>
 
 <script>
+import RegistrosUsuario from '@/components/Registros.vue'
 export default {
     name: "BatePonto",
+    components: {
+        RegistrosUsuario
+    },
 
     methods: {
         setHorario() {
