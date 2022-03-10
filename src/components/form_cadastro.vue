@@ -34,8 +34,7 @@
                     </b-form-group>
                 </b-form>
             </b-card>
-        </b-col>
-    
+        </b-col>    
 </template>
 
 <script>
@@ -54,8 +53,16 @@ export default {
     methods:{
         save(){            
             this.$store.dispatch('setUsuario', this.dados_usuario).then(() => {
-                  
-            }).catch(()=> {
+                this.$swal({
+                    title: 'Sucesso!',
+                    html: 'Cadastro efetuado com sucesso',
+                    icon: 'success',
+                    timer: 2000,
+                    showConfirmButton: false
+                    }); 
+                this.$router.push({name: 'home'})
+            }).catch((error)=> {
+                console.log(error, this)
                 this.$swal({
                     title: 'Erro!',
                     text: 'Cadastro não efetuado',
@@ -70,8 +77,3 @@ export default {
 
 
 </script>
-
-
-<style>
-
-</style>

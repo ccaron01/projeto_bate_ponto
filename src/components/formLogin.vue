@@ -34,6 +34,7 @@ export default {
                     timer: 2000,
                     showConfirmButton: false
                     }); 
+                    this.$router.push({name: 'account'})
             } else {
                 this.$swal({
                     title: 'Erro!',
