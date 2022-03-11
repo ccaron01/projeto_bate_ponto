@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul id="listagem">
-            <li v-for="item in horarios" :key="item">
+            <li v-for="item in this.$store.getters.getHorario" :key="item">
                 {{item}}                
             </li>
         </ul>
@@ -13,11 +13,8 @@ export default {
     name: "RegistrosUsuario",
     data(){
         return {
-            horarios: []        
+            horarios: {}      
         }       
     },
-    mounted(){        
-            this.horarios = this.$store.getters.getHorario;
-    }
 }
 </script>

@@ -27,12 +27,12 @@ export default {
 
         validate() {
             var flag = false;
-            const payload = this.$store.getters.getUsuario[this.login_usuario.email];
-                if ( payload != null && payload.senha == this.login_usuario.senha) {
-                    flag = true
-                } else {
-                    flag = false
-                }
+            const payload = this.$store.getters.getUsuario[this.login_usuario.email] || null;
+            if ( payload != null && payload.senha == this.login_usuario.senha) {
+                flag = true
+            } else {
+                flag = false
+            }
 
             if (flag) {
                 this.$swal({
@@ -54,6 +54,7 @@ export default {
                     showConfirmButton: false
                 });
             }
+            this.$store.dispatch('setUsuarioLogado', this.login_usuario.email)
         }
     },
 }
