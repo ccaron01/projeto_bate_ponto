@@ -28,8 +28,6 @@ export default {
         validate() {
             var flag = false;
             const payload = this.$store.getters.getUsuario[this.login_usuario.email];
-            console.log(payload)
-            console.log(this.$store.getters.getUsuario)
                 if ( payload != null && payload.senha == this.login_usuario.senha) {
                     flag = true
                 } else {
