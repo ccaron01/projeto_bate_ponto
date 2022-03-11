@@ -1,20 +1,17 @@
 export default {
     state: {
-        usuario: {
-            nome: null,
-            email: null,
-            senha: null,
-            data_nascimento: null
-        },
+        usuarios: {
+            email: {}
+        }
     },
     getters: {
         getUsuario(state) {
-            return state.usuario;
+            return state.usuarios;
         }
     },
     mutations: {
         SET_USUARIO(state, payload) {
-            state.usuario = payload
+            state.usuarios[payload.email] = payload;
         }
     },
     actions: {
