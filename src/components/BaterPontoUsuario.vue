@@ -20,7 +20,6 @@ export default {
     methods: {
         setHorario() {
             var ponto = new Date();
-            console.log(ponto)
             this.$store.dispatch('setHorario', ponto).then(() => {
                 this.$swal({
                     title: 'Sucesso!',
