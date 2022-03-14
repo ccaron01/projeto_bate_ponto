@@ -1,3 +1,5 @@
+import Vue from 'vue'
+
 export default {
     state: {
         usuarioLogado: null,
@@ -7,18 +9,21 @@ export default {
     },
     getters: {
         getUsuarioLogado(state) {
-            return state.pontosUsuario;
+            return state.usuarioLogado;
         },
         getHorario(state) {
-            return state.pontosUsuario[state.usuarioLogado];
+            if (state.pontosUsuario[state.usuarioLogado] == undefined) {
+                return null
+            }
+            return state.pontosUsuario[state.usuarioLogado]
         },
     },
     mutations: {
         SET_HORARIO(state, payload) {
             if (state.pontosUsuario[state.usuarioLogado] == undefined) {
-                state.pontosUsuario[state.usuarioLogado] = [];
+                state.pontosUsuario[state.usuarioLogado] = {};
             }
-            state.pontosUsuario[state.usuarioLogado].push(payload)
+            Vue.set(state.pontosUsuario[state.usuarioLogado], Object.keys(state.pontosUsuario[state.usuarioLogado]).length, payload)
         },
         SET_USUARIO_LOGADO(state, payload) {
             state.usuarioLogado = payload

@@ -1,7 +1,7 @@
 <template>
     <div>
         <ul id="listagem">
-            <li v-for="item in this.$store.getters.getHorario" :key="item">
+            <li v-for="item in $store.getters.getHorario" :key="item">
                 {{item}}                
             </li>
         </ul>
